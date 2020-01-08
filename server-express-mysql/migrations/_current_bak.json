@@ -29,15 +29,6 @@
                     "field": "DOB",
                     "seqType": "Sequelize.DATEONLY"
                 },
-                "last_update": {
-                    "allowNull": false,
-                    "defaultValue": {
-                        "internal": true,
-                        "value": "Sequelize.Literal"
-                    },
-                    "field": "last_update",
-                    "seqType": "Sequelize.DATE"
-                },
                 "createdAt": {
                     "allowNull": false,
                     "field": "createdAt",
@@ -52,5 +43,5 @@
             "indexes": []
         }
     },
-    "revision": 2
+    "revision": 3
 }
