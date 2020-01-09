@@ -1,38 +1,48 @@
 {
     "tables": {
-        "project": {
-            "tableName": "project",
+        "users": {
+            "tableName": "users",
             "schema": {
-                "user_id": {
+                "UserId": {
                     "allowNull": false,
-                    "primaryKey": true,
                     "autoIncrement": true,
-                    "field": "user_id",
-                    "seqType": "Sequelize.INTEGER(5).UNSIGNED"
+                    "primaryKey": true,
+                    "field": "UserId",
+                    "seqType": "Sequelize.INTEGER"
                 },
-                "first_name": {
-                    "allowNull": false,
-                    "field": "first_name",
-                    "seqType": "Sequelize.STRING(45)"
+                "FirstName": {
+                    "field": "FirstName",
+                    "seqType": "Sequelize.STRING"
                 },
-                "last_name": {
-                    "allowNull": false,
-                    "field": "last_name",
-                    "seqType": "Sequelize.STRING(45)"
+                "LastName": {
+                    "field": "LastName",
+                    "seqType": "Sequelize.STRING"
                 },
-                "email_address": {
-                    "allowNull": false,
-                    "field": "email_address",
-                    "seqType": "Sequelize.STRING(45)"
+                "Email": {
+                    "unique": true,
+                    "field": "Email",
+                    "seqType": "Sequelize.STRING"
                 },
-                "DOB": {
-                    "allowNull": true,
-                    "field": "DOB",
-                    "seqType": "Sequelize.DATEONLY"
+                "Username": {
+                    "unique": true,
+                    "field": "Username",
+                    "seqType": "Sequelize.STRING"
+                },
+                "Password": {
+                    "field": "Password",
+                    "seqType": "Sequelize.STRING"
+                },
+                "createdAt": {
+                    "field": "createdAt",
+                    "seqType": "Sequelize.DATE"
+                },
+                "updatedAt": {
+                    "field": "updatedAt",
+                    "seqType": "Sequelize.DATE"
                 }
             },
             "indexes": []
         }
     },
-    "revision": 4
+    "revision": 5
 }
