@@ -21,8 +21,6 @@ module.exports = function(sequelize, DataTypes) {
         unique: true
       },
       Password: DataTypes.STRING,
-      createdAt: DataTypes.DATE,
-      updatedAt: DataTypes.DATE
   }, {
     tableName: 'project'
   });
