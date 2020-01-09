@@ -18,14 +18,7 @@ var info = {
     "comment": ""
 };
 
-var migrationCommands = [{
-        fn: "removeColumn",
-        params: ["project", "createdAt"]
-    },
-    {
-        fn: "removeColumn",
-        params: ["project", "updatedAt"]
-    },
+var migrationCommands = [   
     {
         fn: "changeColumn",
         params: [
