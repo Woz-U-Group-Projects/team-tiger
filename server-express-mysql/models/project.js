@@ -8,20 +8,21 @@ module.exports = function(sequelize, DataTypes) {
     },
     first_name: {
       type: DataTypes.STRING(45),
-      allowNull: false
-    },
+      allowNull: false,
     last_name: {
       type: DataTypes.STRING(45),
-      allowNull: false
-    },
+      allowNull: false,
     email_address: {
       type: DataTypes.STRING(45),
-      allowNull: false
+      unique: false,
     },
-    DOB: {
-      type: DataTypes.DATEONLY,
-      allowNull: true
-    }
+     Username: {
+        type: DataTypes.STRING,
+        unique: true
+      },
+      Password: DataTypes.STRING,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE
   }, {
     tableName: 'project'
   });
