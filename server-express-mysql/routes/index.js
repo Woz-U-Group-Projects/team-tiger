@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const mysql = require('mysql2');
 const models = require('../models');
+var Sequelize = require('sequelize');
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
@@ -9,10 +10,13 @@ router.get("/", function(req, res, next) {
 });
 
 router.get('/users', function(req, res, next) {
-  models.project.findAll({}).then(usersFound => {
-    res.render('users', {
-      users: usersFound
-    });
+  models.project.findAll({})
+  .then(usersFound => {
+    let mappedUsers = usersFound.map(user => ({
+      UserID: user.user_id,
+      Name: `${user.first_name} ${user.last_name}`
+    }));
+    res.send(JSON.stringify(mappedUsers));
   });
 });
 
