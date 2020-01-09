@@ -28,8 +28,6 @@ var migrationCommands = [
                 "type": Sequelize.INTEGER(5).UNSIGNED,
                 "field": "user_id",
                 "autoIncrement": true,
-                "primaryKey": true,
-                "allowNull": false
             }
         ]
     }
