@@ -1,5 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('project', {
+  var users = sequelize.define(
+    'users', 
+    {
     user_id: {
       type: DataTypes.INTEGER(5).UNSIGNED,
       allowNull: false,
@@ -20,8 +22,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         unique: true
       },
-      Password: DataTypes.STRING,
-  }, {
-    tableName: 'project'
-  });
+      Password: DataTypes.STRING
+  },  
+    {}
+  );
+
+  return users;
 };
