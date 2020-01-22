@@ -4,7 +4,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 import './App.css';
-import Loginscreen from './Loginscreen'
+import Loginscreen from './screens/Loginscreen';
+import Login from './screens/Login';
+import Register from './screens/Register';
 
 class App extends Component {
   constructor(props){
