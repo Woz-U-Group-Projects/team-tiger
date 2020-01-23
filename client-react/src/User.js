@@ -1,22 +1,22 @@
-import React from "react";
+import React, {Component} from "react";
 import axios from "axios";
 
-class Project extends React.Component {
+class User extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { projects: [] };
+    this.state = { users: [] };
   }
 
   componentDidMount() {
     axios
-      .get("http://localhost:3000/projects")
-      .then(response => this.setState({ projects: response.data }));
+      .get("http://localhost:3000/users")
+      .then(response => this.setState({ users: response.data }));
   }
 
   render() {
     return (
       <div>
-        {this.state.projects.map(p => (
+        {this.state.users.map(p => (
           <div key={p.id}>
             {p.id} : {p.name} : {p.createdBy}
           </div>
@@ -26,4 +26,4 @@ class Project extends React.Component {
   }
 }
 
-export default Project;
+export default User;

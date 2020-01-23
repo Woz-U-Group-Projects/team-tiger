@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var projects = sequelize.define(
-    'project',
+  var users = sequelize.define(
+    'users',
     {
       UserId: {
         allowNull: false,
@@ -26,5 +26,5 @@ module.exports = (sequelize, DataTypes) => {
     {}
   );
 
-  return projects;
+  return users;
 };
