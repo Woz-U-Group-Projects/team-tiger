@@ -22,7 +22,7 @@ router.get('/users', function(req, res, next) {
 
 router.get('/user/:id', function(req, res, next) {
   let userId = parseInt(req.params.id);
-  models.project
+  models.users
     .findOne({
       where: {
         user_id: userId
@@ -36,7 +36,7 @@ router.get('/user/:id', function(req, res, next) {
 });
 
 router.post('/user', (req, res) => {
-  models.project
+  models.users
     .findOrCreate({
       where: {
         first_name: req.body.first_name,
