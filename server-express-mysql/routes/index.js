@@ -10,7 +10,7 @@ router.get("/", function(req, res, next) {
 });
 
 router.get('/users', function(req, res, next) {
-  models.project.findAll({})
+  models.users.findAll({})
   .then(usersFound => {
     let mappedUsers = usersFound.map(user => ({
       UserID: user.user_id,
