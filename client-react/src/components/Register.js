@@ -10,20 +10,20 @@ class Register extends Component {
     constructor(props){
         super(props);
         this.state={
-            first_name:'',
-            last_name:'',
+            firstName:'',
+            lastName:'',
             email:'',
             password:''
         }
    }
    handleClick(event){
     var apiBaseUrl = "http://localhost:4000/api/";
-    console.log("values",this.state.first_name,this.state.last_name,this.state.email,this.state.password);
+    console.log("values",this.state.firstName,this.state.lastName,this.state.email,this.state.password);
     //To be done:check for empty values before hitting submit
     var self = this;
     var payload={
-    "first_name": this.state.first_name,
-    "last_name":this.state.last_name,
+    "firstName": this.state.firstName,
+    "lastName":this.state.lastName,
     "email":this.state.email,
     "password":this.state.password
     }
@@ -59,13 +59,13 @@ class Register extends Component {
            <TextField
              hintText="Enter your First Name"
              floatingLabelText="First Name"
-             onChange = {(event,newValue) => this.setState({first_name:newValue})}
+             onChange = {(event,newValue) => this.setState({firstName:newValue})}
              />
            <br/>
            <TextField
              hintText="Enter your Last Name"
              floatingLabelText="Last Name"
-             onChange = {(event,newValue) => this.setState({last_name:newValue})}
+             onChange = {(event,newValue) => this.setState({lastName:newValue})}
              />
            <br/>
            <TextField
