@@ -10,33 +10,33 @@ router.get("/", function(req, res, next) {
 });
 
 router.get('/users', function(req, res, next) {
-  models.users.findAll({})
-  .then(usersFound => {
-    let mappedUsers = usersFound.map(user => ({
-      UserID: user.user_id,
+  models.projects.findAll({})
+  .then(projectsFound => {
+    let mappedProjects = projectsFound.map(user => ({
+      ProjectID: user.user_id,
       Name: `${user.first_name} ${user.last_name}`
     }));
-    res.send(JSON.stringify(mappedUsers));
+    res.send(JSON.stringify(mappedProjects));
   });
 });
 
 router.get('/user/:id', function(req, res, next) {
   let userId = parseInt(req.params.id);
-  models.users
+  models.projects
     .findOne({
       where: {
         user_id: userId
       }
     })
     .then(user => {
-      res.render('specificUser', {
+      res.render('specificProject', {
         user: user
       });
     });
 });
 
-router.post('/user', (req, res) => {
-  models.users
+router.post('/project', (req, res) => {
+  models.projects
     .findOrCreate({
       where: {
         first_name: req.body.first_name,
@@ -45,7 +45,7 @@ router.post('/user', (req, res) => {
     })
     .spread(function(result, created) {
       if (created) {
-        res.redirect('/users');
+        res.redirect('/projects');
       } else {
         res.send('This user already exists!');
       }

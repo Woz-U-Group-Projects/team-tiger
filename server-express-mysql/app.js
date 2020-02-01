@@ -8,7 +8,6 @@ var cors = require("cors");
 
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
 var projectsRouter = require("./routes/projects");
 
 var app = express();
@@ -24,7 +23,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/projects", projectsRouter);
 
 models.sequelize.sync().then(function() {
