@@ -1,20 +1,30 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Project = sequelize.define(
-    "Project",
+  var projects = sequelize.define(
+    'project',
     {
-      id: {
-        type: DataTypes.INTEGER,
+      UserId: {
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
+        type: DataTypes.INTEGER
       },
-      name: DataTypes.STRING,
-      createdBy: DataTypes.STRING
+      FirstName: DataTypes.STRING,
+      LastName: DataTypes.STRING,
+      Email: {
+        type: DataTypes.STRING,
+        unique: true
+      },
+      Username: {
+        type: DataTypes.STRING,
+        unique: true
+      },
+      Password: DataTypes.STRING,
+      createdAt: DataTypes.DATE,
+      updatedAt: DataTypes.DATE
     },
     {}
   );
-  Project.associate = function(models) {
-    // associations can be defined here
-  };
-  return Project;
+
+  return projects;
 };
