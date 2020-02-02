@@ -7,13 +7,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: black;
-  background-image: url("drawing-tigers-aesthetic-6-transparent.png");
+  background-image: url("tigereats.png"), radial-gradient(circle, orange, black);
   background-repeat: no-repeat, repeat;
   background-attachment: fixed;
   background-position: center; 
   background-color: orange;
   text-align: center;
-  
+  font-size: 13px;
 }
 
 code {
@@ -29,7 +29,6 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  background-color: red;
   border-radius: 12px;
 }
 
