@@ -10,9 +10,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 const App = () => (
   <Router>
     <div>
-      <Route exact path="/" component={Project} />
+      <Route exact path="/" component={Register} />
       <Route path="/Login" component={Login} />
-      <Route path="/Register" component={Register} />
+      <Route path="/Project" component={Project} />
     </div>
   </Router>
 );

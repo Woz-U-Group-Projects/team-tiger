@@ -5,7 +5,6 @@ import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router-dom';
-import './tiger.svg';
 
 
 class Project extends React.Component {
@@ -54,7 +53,7 @@ class Project extends React.Component {
               onChange={this.userName}
             />
             <br />
-            <RaisedButton label="Get Started!" primary={true} onClick={this.addUser} />
+            <RaisedButton label="Get Started!" primary={true} onClick={(event) => this.handleClick(event)} />
           </div>
           <ul>
             {this.state.projects.map(p => (

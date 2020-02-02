@@ -8,10 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: black;
   background-image: url("tigereats.png"), radial-gradient(circle, cyan, black);
-  background-repeat: no-repeat, repeat;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: bottom; 
-  background-size: unset;
+  background-position: center bottom;
   text-align: center;
   font-size: 13px;
 }
@@ -80,8 +79,7 @@ input {
   }
   /* Desktops and laptops ----------- */
   @media only screen  and (min-width : 1224px) {
-  body {background-attachment: fixed;
-  background-position: center;}
+
   /* Styles */
   }
   
