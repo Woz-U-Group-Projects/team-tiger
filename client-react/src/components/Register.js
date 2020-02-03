@@ -10,21 +10,21 @@ class Register extends Component {
     constructor(props){
         super(props);
         this.state={
-            firstName:'',
-            lastName:'',
-            email:'',
+            first_name:'',
+            last_name:'',
+            username:'',
             password:''
         }
    }
    handleClick(event){
     var apiBaseUrl = "http://localhost:4000/api/";
-    console.log("values",this.state.firstName,this.state.lastName,this.state.email,this.state.password);
+    console.log("values",this.state.first_name,this.state.last_name,this.state.username,this.state.password);
     //To be done:check for empty values before hitting submit
     var self = this;
     var payload={
-    "firstName": this.state.firstName,
-    "lastName":this.state.lastName,
-    "email":this.state.email,
+    "first_name": this.state.first_name,
+    "last_name":this.state.last_name,
+    "username":this.state.username,
     "password":this.state.password
     }
     axios.post(apiBaseUrl+'/register', payload)
@@ -59,20 +59,13 @@ class Register extends Component {
            <TextField
              hintText="Enter your First Name"
              floatingLabelText="First Name"
-             onChange = {(event,newValue) => this.setState({firstName:newValue})}
+             onChange = {(event,newValue) => this.setState({first_name:newValue})}
              />
            <br/>
            <TextField
              hintText="Enter your Last Name"
              floatingLabelText="Last Name"
-             onChange = {(event,newValue) => this.setState({lastName:newValue})}
-             />
-           <br/>
-           <TextField
-             hintText="Enter your Email"
-             type="email"
-             floatingLabelText="Email"
-             onChange = {(event,newValue) => this.setState({email:newValue})}
+             onChange = {(event,newValue) => this.setState({last_name:newValue})}
              />
            <br/>
            <TextField

@@ -9,6 +9,7 @@ router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
 });
 
+<<<<<<< HEAD
 router.get('/homes', function(req, res, next) {
   models.homes.findAll({})
   .then(homesFound => {
@@ -23,20 +24,47 @@ router.get('/homes', function(req, res, next) {
 router.get('/home/:id', function(req, res, next) {
   let homeId = parseInt(req.params.id);
   models.homes
+=======
+router.get('/users', function(req, res, next) {
+  models.projects.findAll({})
+  .then(projectsFound => {
+    let mappedProjects = projectsFound.map(user => ({
+      ProjectID: user.user_id,
+      Name: `${user.first_name} ${user.last_name}`
+    }));
+    res.send(JSON.stringify(mappedProjects));
+  });
+});
+
+router.get('/user/:id', function(req, res, next) {
+  let userId = parseInt(req.params.id);
+  models.projects
+>>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
     .findOne({
       where: {
         home_id: homeId
       }
     })
+<<<<<<< HEAD
     .then(home => {
       res.render('specifichome', {
         home: home
+=======
+    .then(user => {
+      res.render('specificProject', {
+        user: user
+>>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
       });
     });
 });
 
+<<<<<<< HEAD
 router.post('/register', (req, res) => {
   models.homes
+=======
+router.post('/project', (req, res) => {
+  models.projects
+>>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
     .findOrCreate({
       where: {
         first_name: req.body.first_name,
@@ -45,7 +73,11 @@ router.post('/register', (req, res) => {
     })
     .spread(function(result, created) {
       if (created) {
+<<<<<<< HEAD
         res.redirect('/login');
+=======
+        res.redirect('/projects');
+>>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
       } else {
         res.send('This home already exists!');
       }

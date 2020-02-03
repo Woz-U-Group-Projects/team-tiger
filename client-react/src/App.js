@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import User from "./User";
+import Project from 'from./Project';
 import "./App.css";
 import Loginscreen from './Loginscreen'
 import injectTapEventPlugin from 'react-tap-event-plugin';
