@@ -2,11 +2,12 @@
   "development": {
     "username": "root",
     "password": "Password1!",
-    "database": "database",
+    "database": "team-tiger",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false,
-    "define": { "timestamps": false }
+    "define": { "timestamps" : false }
+
   },
   "test": {
     "username": "root",
