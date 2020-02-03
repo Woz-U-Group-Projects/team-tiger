@@ -9,11 +9,9 @@ var cors = require("cors");
 
 var indexRouter = require("./routes/index");
 <<<<<<< HEAD
-var usersRouter = require("./routes/users");
+// var usersRouter = require("./routes/users");
 var homesRouter = require("./routes/homes");
-=======
-var projectsRouter = require("./routes/projects");
->>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
+
 
 var app = express();
 
@@ -29,11 +27,10 @@ app.set('view engine', 'hbs');
 
 app.use("/", indexRouter);
 <<<<<<< HEAD
-app.use("/users", usersRouter);
+// app.use("/users", usersRouter);
 app.use("/homes", homesRouter);
 =======
-app.use("/projects", projectsRouter);
->>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
+app.use("/homes", homesRouter);
 
 models.sequelize.sync().then(function() {
   console.log("DB Sync'd up");
