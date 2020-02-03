@@ -3,7 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Login from './Login';
 
@@ -80,7 +80,7 @@ class Register extends Component {
              onChange = {(_event,newValue) => this.setState({password:newValue})}
              />
            <br/>
-           <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+           <RaisedButton label="Submit" primary={true} onClick={(event) => this.handleClick(event)}/>
           </div>
          </MuiThemeProvider>
          <Link to='/Login'>Already have an account? Sign in here.</Link>
@@ -88,8 +88,5 @@ class Register extends Component {
       
     )};
 };
-  
-const style = {
-  margin: 15,
-};
-export default Register;
+
+export default withRouter (Register);

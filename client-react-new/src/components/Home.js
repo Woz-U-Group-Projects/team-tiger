@@ -4,10 +4,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
-class Project extends React.Component {
+class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = { projects: [] };
@@ -31,42 +31,22 @@ class Project extends React.Component {
     axios.get(url).then(response => this.setState({ projects: response.data }));
   };
 
-  addUser = () => {
-    let url = "http://localhost:3001/users";
-    axios.post(url, { name: this.userName.current.value }).then(response => {
-      // refresh the data
-      this.getData();
-      // empty the input
-      this.userName.current.value = "";
-    });
-  };
 
   render() {
     return (
       <div>
-        <MuiThemeProvider>
+       <MuiThemeProvider>
           <div>
-            <AppBar title='Welcome to TigerEats! Create a Username to get started.' />
-            <TextField
-              hintText="Enter a Username"
-              floatingLabelText="Username"
-              onChange={this.userName}
-            />
-            <br />
-            <RaisedButton label="Get Started!" primary={true} onClick={(event) => this.handleClick(event)} />
+          <AppBar
+             title="Welcome {username}!"
+           />
           </div>
-          <ul>
-            {this.state.projects.map(p => (
-              <li key={p.id}>
-                {p.id} : {p.name} : {p.complete ? "complete" : "not complete"}
-              </li>
-            ))}
-          </ul>
-          <Link to='/Login'>Already have an account? Sign in here.</Link>
-        </MuiThemeProvider>
+          <br />
+          <RaisedButton label="Logout" primary={true} onClick={(event) => this.handleClick(event)}/>
+         </MuiThemeProvider>
       </div>
     );
   }
 }
 
-export default Project;
+export default withRouter (Home);
