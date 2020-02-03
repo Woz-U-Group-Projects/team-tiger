@@ -9,48 +9,63 @@ router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get('/users', function(req, res, next) {
-  models.projects.findAll({})
-  .then(projectsFound => {
-    let mappedProjects = projectsFound.map(user => ({
-      ProjectID: user.user_id,
-      Name: `${user.first_name} ${user.last_name}`
-    }));
-    res.send(JSON.stringify(mappedProjects));
-  });
-});
+// router.get('/homes', function(req, res, next) {
+//   models.homes.findAll({})
+//   .then(homesFound => {
+//     let mappedhomes = homesFound.map(home => ({
+//       homeId: home.homeId,
+//       Name: `${home.first_name} ${home.last_name}`
+//     }));
+//     res.send(JSON.stringify(mappedhomes));
+//   });
+// });
 
-router.get('/user/:id', function(req, res, next) {
-  let userId = parseInt(req.params.id);
-  models.projects
-    .findOne({
-      where: {
-        user_id: userId
-      }
-    })
-    .then(user => {
-      res.render('specificProject', {
-        user: user
-      });
-    });
-});
+// router.get('/home/:id', function(req, res, next) {
+//   let homeId = parseInt(req.params.id);
+//   models.homes
+//     .findOne({
+//       where: {
+//         home_id: homeId
+//       }
+//     })
+// <<<<<<< HEAD
+//     .then(home => {
+//       res.render('specifichome', {
+//         home: home
+// =======
+//     .then(user => {
+//       res.render('specificProject', {
+//         user: user
+// >>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
+//       });
+//     });
+// });
 
-router.post('/project', (req, res) => {
-  models.projects
-    .findOrCreate({
-      where: {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name
-      }
-    })
-    .spread(function(result, created) {
-      if (created) {
-        res.redirect('/projects');
-      } else {
-        res.send('This user already exists!');
-      }
-    });
-});
+// <<<<<<< HEAD
+// router.post('/register', (req, res) => {
+//   models.homes
+// =======
+// router.post('/project', (req, res) => {
+//   models.projects
+// >>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
+//     .findOrCreate({
+//       where: {
+//         first_name: req.body.first_name,
+//         last_name: req.body.last_name
+//       }
+//     })
+//     .spread(function(result, created) {
+//       if (created) {
+// <<<<<<< HEAD
+//         res.redirect('/login');
+// =======
+//         res.redirect('/projects');
+// >>>>>>> 6ec3b72d4c7c38a167e91af458f993501647142d
+//       } else {
+//         res.send('This home already exists!');
+//       }
+//     });
+// });
 
 
 
