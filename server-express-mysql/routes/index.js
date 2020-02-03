@@ -9,34 +9,34 @@ router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get('/users', function(req, res, next) {
-  models.users.findAll({})
-  .then(usersFound => {
-    let mappedUsers = usersFound.map(user => ({
-      UserID: user.user_id,
-      Name: `${user.first_name} ${user.last_name}`
+router.get('/homes', function(req, res, next) {
+  models.homes.findAll({})
+  .then(homesFound => {
+    let mappedhomes = homesFound.map(home => ({
+      homeId: home.homeId,
+      Name: `${home.first_name} ${home.last_name}`
     }));
-    res.send(JSON.stringify(mappedUsers));
+    res.send(JSON.stringify(mappedhomes));
   });
 });
 
-router.get('/user/:id', function(req, res, next) {
-  let userId = parseInt(req.params.id);
-  models.users
+router.get('/home/:id', function(req, res, next) {
+  let homeId = parseInt(req.params.id);
+  models.homes
     .findOne({
       where: {
-        user_id: userId
+        home_id: homeId
       }
     })
-    .then(user => {
-      res.render('specificUser', {
-        user: user
+    .then(home => {
+      res.render('specifichome', {
+        home: home
       });
     });
 });
 
-router.post('/user', (req, res) => {
-  models.users
+router.post('/register', (req, res) => {
+  models.homes
     .findOrCreate({
       where: {
         first_name: req.body.first_name,
@@ -45,9 +45,9 @@ router.post('/user', (req, res) => {
     })
     .spread(function(result, created) {
       if (created) {
-        res.redirect('/users');
+        res.redirect('/login');
       } else {
-        res.send('This user already exists!');
+        res.send('This home already exists!');
       }
     });
 });
